@@ -4,9 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>CodePackager</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>AutomatizationLab2</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <artifactId>report-maven-plugin</artifactId>
+    <packaging>maven-plugin</packaging>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
@@ -33,6 +38,24 @@
             <version>3.9.16</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.thoughtworks.qdox</groupId>
+            <artifactId>qdox</artifactId>
+            <version>2.2.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>3.15.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
