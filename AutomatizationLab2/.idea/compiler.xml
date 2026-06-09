@@ -7,8 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="code-packager-maven-plugin" />
-        <module name="report-maven-plugin" />
-        <module name="test-module" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
