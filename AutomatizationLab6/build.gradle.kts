@@ -43,7 +43,7 @@ publishing {
             from(components["java"])
             groupId = group.toString()
             artifactId = "jar-package"
-            version = version.toString()
+            version = System.getenv("VERSION")
         }
     }
 }
