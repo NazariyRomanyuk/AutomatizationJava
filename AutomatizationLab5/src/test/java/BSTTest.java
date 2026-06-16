@@ -71,8 +71,8 @@ public class BSTTest {
         return Files.readAllLines(path).stream().map(line -> {
             String[] pair = line.split(",");
             int key = Integer.parseInt(pair[0].strip());
-            int expectedFloor = Integer.parseInt(pair[1].strip());
-            int actualFloor = bst.floor(key);
+            Integer expectedFloor = pair[1].strip().equals("null") ? null : Integer.parseInt(pair[1].strip());
+            Integer actualFloor = bst.floor(key);
             return DynamicTest.dynamicTest("Should return expected floor for key " + key,
                     () -> assertEquals(actualFloor, expectedFloor, "floor(" + key + ") should return " + expectedFloor + ", returned " + actualFloor + " instead."));
         });
