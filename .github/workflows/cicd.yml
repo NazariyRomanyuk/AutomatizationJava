@@ -40,8 +40,12 @@ jobs:
       - name: Build JAR
         run: ./gradlew jar
 
+      - name: Set package version from commit SHA
+        run: echo "VERSION=1.0-${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+
       - name: Upload Build Artifacts to GitHub Packages
         env:
           USERNAME: ${{ github.actor }}
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ env.VERSION }}
         run: ./gradlew publish
