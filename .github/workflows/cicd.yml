@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      packages: write
 
     defaults:
       run:
@@ -39,8 +40,8 @@ jobs:
       - name: Build JAR
         run: ./gradlew jar
 
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: jar
-          path: 'AutomatizationLab6/build/libs/*.jar'
+      - name: Upload Build Artifacts to GitHub Packages
+        env:
+          USERNAME: ${{ github.actor }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew publish
